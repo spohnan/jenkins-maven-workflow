@@ -1,5 +1,7 @@
 ## Jenkins Maven Workflow
 
+*Demonstration of Jenkins pipeline builds and frontend Maven plugin*
+
 * Build base Jenkins image w/plugins installed
     * `docker build -t jmw/jenkins containers/jenkins`
 * Run Jenkins
@@ -8,3 +10,10 @@
     * `http://localhost:8080`
 * Create a Pipeline job
     * New Item -> Enter a job name -> Pipeline
+* Configure Job
+    * Pipeline Section -> Pipeline script from SCM -> Add Checkout URL -> Save and Build Now
+
+### Links
+
+* https://jenkins.io/solutions/pipeline/
+* https://github.com/eirslett/frontend-maven-plugin
