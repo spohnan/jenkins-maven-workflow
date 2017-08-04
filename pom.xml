@@ -6,6 +6,19 @@
     <version>0.0.1-SNAPSHOT</version>
     <packaging>war</packaging>
 
+    <licenses>
+        <license>
+            <name>The Apache Software License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+        </license>
+    </licenses>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.build.timestamp.format>yyyy-MM-dd'T'HH:mm:ssZ</maven.build.timestamp.format>
+        <build.timestamp>${maven.build.timestamp}</build.timestamp>
+    </properties>
+
     <build>
         <finalName>${project.artifactId}</finalName>
 
@@ -20,7 +33,7 @@
                 <executions>
                     <execution>
                         <id>build-properties</id>
-                        <phase>validate</phase>
+                        <phase>process-sources</phase>
                         <goals>
                             <goal>copy-resources</goal>
                         </goals>
@@ -39,7 +52,7 @@
                     </execution>
                     <execution>
                         <id>version-resource</id>
-                        <phase>validate</phase>
+                        <phase>process-sources</phase>
                         <goals>
                             <goal>copy-resources</goal>
                         </goals>
@@ -55,6 +68,19 @@
                             </resources>
                             <outputDirectory>${project.build.directory}/${project.artifactId}</outputDirectory>
                         </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>buildnumber-maven-plugin</artifactId>
+                <version>1.4</version>
+                <executions>
+                    <execution>
+                        <phase>validate</phase>
+                        <goals>
+                            <goal>create</goal>
+                        </goals>
                     </execution>
                 </executions>
             </plugin>
@@ -98,5 +124,11 @@
             </plugin>
         </plugins>
     </build>
+
+    <scm>
+        <url>https://github.com/spohnan/jenkins-maven-workflow.git</url>
+        <connection>scm:git:https://github.com/spohnan/jenkins-maven-workflow.git</connection>
+        <tag>HEAD</tag>
+    </scm>
 
 </project>

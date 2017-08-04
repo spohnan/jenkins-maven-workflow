@@ -2,7 +2,7 @@ var webpack = require('webpack');
 var CopyWebpackPlugin = require('copy-webpack-plugin');
 var path = require('path');
 
-var BUILD_DIR = path.resolve(__dirname, 'target/ui');
+var BUILD_DIR = path.resolve(__dirname, 'target/jenkins-maven-workflow');
 var APP_DIR = path.resolve(__dirname, 'src/main/js');
 
 var config = {
